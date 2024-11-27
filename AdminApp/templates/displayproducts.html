@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Display products</h1>
+
+<div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="table-responsive pt-3">
+                  <table class="table table-striped project-orders-table">
+                    <thead>
+                      <tr>
+                        <th>Category Name</th>
+                        <th>Product name</th>
+                        <th>Quantity</th>
+                        <th>MRP</th>
+                        <th>Description	</th>
+                        <th>Country of Origin</th>
+                        <th>Manufactured by</th>
+                        <th>Img1</th>
+                        <th>Img2</th>
+                        <th>Img3</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                    {% for i in obj3 %}
+                      <tr>
+                        <td>{{1.Category_Name}}</td>
+                        <td>{{i.Product_Name}}</td>
+                        <td>{{i.Product_Quantity}}</td>
+                        <td>{{i.Product_MRP}}</td>
+                        <td>{{i.Product_Description}}</td>
+                        <td>{{i.Product_Country}}</td>
+                        <td>{{i.Product_Manufactured}}</td>
+                        <td>
+                          <img src="{{i.Product_Image1.url}}">
+
+
+                        </td>
+                        <td>
+                          <img src="{{i.Product_Image2.url}}">
+                        </td>
+                        <td>
+                          <img src="{{i.Product_Image3.url}}">
+                        </td>
+
+                        <td>
+                          <a href="{% url 'editproductpagefun' prow_id=i.id  %}">
+                            <button class="btn btn-primary">Edit</button>
+                          </a>
+                        </td>
+
+                        <td>
+                          <a href="#">
+                            <button class="btn btn-primary">Delete</button>
+                          </a>
+                        </td>
+
+                      </tr>
+                    {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+</body>
+</html>
+{% endblock %}

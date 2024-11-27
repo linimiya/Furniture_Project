@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+<h1>Add blog page</h1>
+    <form method="POST" action="{% url 'save_Blog_DB' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+<input type="text" placeholder="Enter the details of product" name="tblogdet"><br><br>
+<input type="file" placeholder="Enter the image of product" name="tnlogimg"><br><br>
+    <button type="submit">Submit</button>
+    </div>
+    </form>
+</body>
+</html>
+{% endblock %}

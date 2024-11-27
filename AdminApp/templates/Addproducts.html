@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+
+<div class="my-div" >
+                    <form class="forms-sample" method="POST" action="{% url 'Product_DBSavefun' %}" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label>Choose categories</label>
+                            <select name="category">
+                                {% for i in cat %}
+                                <option>{{i.Category_Name }}</option>
+                                {% endfor %}
+                            </select>
+
+                        </div>
+
+                    <div class="form-group">
+                      <label >ProductName</label>
+                      <input type="text" class="form-control"  placeholder="productname"name="tpodname" >
+                    </div>
+                      <div class="form-group">
+                        <label >Quantity</label>
+                          <input type="text" class="form-control" placeholder="Quantity"  name="tpodQuantity">
+                      </div>
+
+                         <div class="form-group">
+                        <label >MRP</label>
+                          <input  type="number" class="form-control" placeholder="Quantity"  name="tpodMRP">
+                      </div>
+                          <div class="form-group">
+                        <label >Description</label>
+                            <textarea name="Description" rows="5" cols="30">Enter your text here..
+
+                            </textarea>
+
+                      </div>
+                        <div class="form-group">
+                        <label >Country of origin</label>
+                          <input  type="text" class="form-control" placeholder="Country of orgin"  name="tpodOrigin">
+                      </div>
+                        <div class="form-group">
+                        <label >Manufactured by</label>
+                          <input  type="text" class="form-control" placeholder="Manufactured by"  name="tpodMan">
+                      </div>
+
+                      <div class="form-group">
+                      <label >Upload Image</label>
+                      <input type="file" class="form-control"  placeholder="uplaod Image of product1" name="tpodimg1">
+                    </div>
+
+                        <div class="form-group">
+                      <label >Upload Image</label>
+                      <input type="file" class="form-control"  placeholder="uplaod Image of product2" name="tpodimg2">
+                    </div>
+                        <div class="form-group">
+                      <label >Upload Image</label>
+                      <input type="file" class="form-control"  placeholder="uplaod Image of product3" name="tpodimg3">
+                    </div>
+
+
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    <button class="btn btn-light">Cancel</button>
+                  </form>
+
+                </div>
+
+
+</body>
+</html>
+{% endblock %}

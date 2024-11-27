@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1> edit page</h1>
+<!DOCTYPE html>
+{% extends 'index.html' %}
+{% block content %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .my-div{
+        border:2px solid black;
+        padding:10px;
+        margin:20px;
+        background-color:#50e573;
+        }
+
+    </style>
+</head>
+<body>
+
+
+                <div class="my-div" >
+                    <form class="forms-sample"  method='POST' action ="{% url 'update_Category_DBfromEdit' eupd_id=erow_id.id %}" enctype="multipart/form-data">
+                        {% csrf_token %}
+                    <div class="form-group">
+                      <label >Category Name<label>
+                      <input type="text" class="form-control"  placeholder="Categoryname"name="tcatname" value="{{erow_id.Category_Name}}">
+                    </div>
+                      <div class="form-group">
+                        <label >Description<label>
+                          <textarea class="form-control" placeholder="Description" rows="10" cols="30" name="tcatdesc" >{{erow_id.Category_Description}}</textarea>
+                      </div>
+                      <div class="form-group">
+                      <label >Upload Image<label>
+                          <img src="{{erow_id.Category_Image.url}}" height="70px" width="70px">
+                      <input type="file" class="form-control"  placeholder="uplaod Image" name="timg" >
+                    </div>
+
+
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    <button class="btn btn-light">Cancel</button>
+                  </form>
+
+                </div>
+
+
+
+
+</html>
+{% endblock %}
+</body>
+</html>

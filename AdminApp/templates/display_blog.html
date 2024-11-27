@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>display blog page</h1>
+<table style="border: 2px solid black;">
+    <th style="border: 2px solid black;">Product Data</th>
+    <th style="border: 2px solid black;">Product Image</th>
+    {% for i in datablog %}
+    <tr >
+        <td style="border: 2px solid black;">{{i.Blog_Data}}</td>
+
+        <td style="border: 2px solid black;">
+            <img src="{{i.Blog_Image.url}}"
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+{% extends 'home.html' %}
+{% load static %}
+
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Blogs page</h1>
+		<nav class="custom-navbar navbar navbar navbar-expand-md navbar-dark bg-dark" arial-label="Furni navigation bar">
+
+			<div class="container">
+				<a class="navbar-brand" href="index.html">WoodTech<span>.</span></a>
+
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsFurni" aria-controls="navbarsFurni" aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div class="collapse navbar-collapse" id="navbarsFurni">
+					<ul class="custom-navbar-nav navbar-nav ms-auto mb-2 mb-md-0">
+						<li class="nav-item active">
+							<a class="nav-link" href="{% url 'home' %}">Home</a>
+						</li>
+						<li><a class="nav-link" href="{% url 'product_page' %}">Products</a></li>
+						<li><a class="nav-link" href="{% url 'Aboutus_page' %}">About us</a></li>
+
+						<li><a class="nav-link" href="{% url 'Blogs_page' %}">Blog</a></li>
+						<li><a class="nav-link" href="{% url 'Login_page' %}">Login</a></li>
+						<li><a class="nav-link" href="{% url 'Contact_page' %}">Contact us</a></li>
+					</ul>
+
+					<ul class="custom-navbar-cta navbar-nav mb-2 mb-md-0 ms-5">
+						{% if request.session.Name %}
+						<li><a class="nav-link" href="{% url 'user_logout' %}"><img src="{% static 'web/images/user.svg' %}">Welcome, {{request.session.Name}} /Logout</a></li>
+
+						{% else %}
+						<li><a class="nav-link" href="#"><img src="{% static 'web/images/user.svg' %}"></a></li>
+						{% endif %}
+
+						<li><a class="nav-link" href="{% url 'cart_pagefun' %}">{{count}} <img src="{% static 'web/images/cart.svg' %}"></a></li>
+
+					</ul>
+				</div>
+			</div>
+
+		</nav>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+{%  extends 'index.html' %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Edit page</h1>
+<div class="my-div" >
+                    <form class="forms-sample" method="POST" action="{% url 'update_EditProduct' e_id=pod.id %}">
+                        {% csrf_token %}
+
+                        <div class="form-group">
+                            <label>Choose categories</label>
+                            <select name="category">
+                                {% for i in cat %}
+                                <option>{{i.Category_Name }}</option>
+                                {% endfor %}
+                            </select>
+
+                        </div>
+
+                    <div class="form-group">
+                      <label >ProductName<label>
+                      <input type="text" class="form-control"  placeholder="productname"name="tpodname" value="{{pod.Product_Name}}">
+                    </div>
+                      <div class="form-group">
+                        <label >Quantity<label>
+                          <input type="text" class="form-control" placeholder="Quantity"  name="tpodQuantity" value="{{pod.Product_Quantity}}">
+                      </div>
+
+                         <div class="form-group">
+                        <label >MRP<label>
+                          <input  type="number" class="form-control" placeholder="Quantity"  name="tpodMRP" value="{{pod.Product_MRP}}">
+                      </div>
+                          <div class="form-group">
+                        <label >Description<label>
+                            <textarea name="Description" rows="4" cols="5">value="{{pod.Product_Description}}"
+
+                            </textarea>
+
+                      </div>
+                        <div class="form-group">
+                        <label >Country of origin<label>
+                          <input  type="text" class="form-control" placeholder="Country of orgin"  name="tpodOrigin" value="{{pod.Product_Country}}">
+                      </div>
+                        <div class="form-group">
+                        <label >Manufactured by<label>
+                          <input  type="text" class="form-control" placeholder="Manufactured by"  name="tpodMan" value="{{pod.Product_Manufactured}}">
+                      </div>
+
+                      <div class="form-group">
+
+                      <label >Upload Image<label>
+                          <img src="{{pod.Product_Image1.url}}" height="70px" width="70px">
+                      <input type="file" class="form-control"  placeholder="uplaod Image of product1" name="tpodimg1" >
+                    </div>
+
+                        <div class="form-group">
+                      <label >Upload Image<label>
+                           <img src="{{pod.Product_Image2.url}}" height="70px" width="70px">
+                      <input type="file" class="form-control"  placeholder="uplaod Image of product2" name="tpodimg2">
+                    </div>
+                        <div class="form-group">
+                      <label >Upload Image<label>
+                          <img src="{{pod.Product_Image3.url}}" height="70px" width="70px">
+                      <input type="file" class="form-control"  placeholder="uplaod Image of product3" name="tpodimg3">
+                    </div>
+
+
+                    <button type="submit" class="btn btn-primary mr-2">Submit</button>
+                    <button class="btn btn-light">Cancel</button>
+                  </form>
+
+                </div>
+
+</body>
+</html>
+{% endblock %}
